@@ -22,6 +22,7 @@ import {
   NativeModules,
 } from 'react-native';
 import Counter from '../component/Counter';
+import {connect} from 'react-redux';
 
 // import {
 //   ToastExample
@@ -34,7 +35,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class FirstPage extends Component < {} > {
+class FirstPage extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -153,3 +154,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   }
 });
+
+export default connect()(FirstPage)

@@ -21,7 +21,7 @@ class Root extends Component {
 
 	render() {
 		return (
-			<Provider store={this.state.store}>
+			<Provider store={this.state.state}>
 				<FirstPage />
 			</Provider>
 		);
