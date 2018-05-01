@@ -10,6 +10,8 @@ import {
 	Button,
 	Text,
 } from 'react-native';
+import {connect} from "react-redux";
+import {decreaseCount, increaseCount} from "../action/UpdateCount";
 
 class Counter extends Component {
 
@@ -22,15 +24,17 @@ class Counter extends Component {
 	}
 
 	onIncrease = () => {
-		this.setState({
-			count: ++this.state.count
-		});
+		this.props.dispatch(increaseCount(this.state.count));
+		// this.setState({
+		// 	count: ++this.state.count
+		// });
 	}
 
 	onDecrease = () => {
-		this.setState({
-			count: --this.state.count
-		});
+        this.props.dispatch(decreaseCount(this.state.count));
+        // this.setState({
+		// 	count: --this.state.count
+		// });
 	}
 
 	render() {
@@ -63,5 +67,10 @@ const styles = StyleSheet.create({
 	},
 });
 
+function select(store){
+	return {
+		count: store.countReducer.count
+	}
+}
 
-export default Counter;
+export default connect(select)(Counter);
