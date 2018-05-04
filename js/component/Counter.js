@@ -10,29 +10,34 @@ import {
 	Button,
 	Text,
 } from 'react-native';
-import {connect} from "react-redux";
-import {decreaseCount, increaseCount} from "../action/UpdateCount";
+import {
+	connect
+} from "react-redux";
+import {
+	decreaseCount,
+	increaseCount
+} from "../action/UpdateCount";
 
 class Counter extends Component {
 
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			count: 0
-		};
+		// this.state = {
+		// 	count: 0
+		// };
 	}
 
 	onIncrease = () => {
-		this.props.dispatch(increaseCount(this.state.count));
+		this.props.dispatch(increaseCount(this.props.count));
 		// this.setState({
 		// 	count: ++this.state.count
 		// });
 	}
 
 	onDecrease = () => {
-        this.props.dispatch(decreaseCount(this.state.count));
-        // this.setState({
+		this.props.dispatch(decreaseCount(this.props.count));
+		// this.setState({
 		// 	count: --this.state.count
 		// });
 	}
@@ -41,7 +46,7 @@ class Counter extends Component {
 		return (
 			<View style={styles.container}>
     	  		<Button title='-' onPress={this.onDecrease}></Button>
-    	  		<Text style={styles.textstyle}>{this.state.count}</Text>
+    	  		<Text style={styles.textstyle}>{this.props.count}</Text>
     	  		<Button title='+' onPress={this.onIncrease}></Button>
     	  	</View>
 		);
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-function select(store){
+function select(store) {
 	return {
 		count: store.countReducer.count
 	}

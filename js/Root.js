@@ -8,6 +8,7 @@ import {
 } from 'react-redux';
 import configureStore from './store/configureStore';
 import FirstPage from './page/FirstPage';
+import TabNavigation from "./PageNavigation";
 
 class Root extends Component {
 
@@ -15,14 +16,14 @@ class Root extends Component {
 		super(props);
 
 		this.state = {
-			state: configureStore()
+			store: configureStore()
 		};
 	}
 
 	render() {
 		return (
-			<Provider store={this.state.state}>
-				<FirstPage />
+			<Provider store={this.state.store}>
+				<TabNavigation />
 			</Provider>
 		);
 	}

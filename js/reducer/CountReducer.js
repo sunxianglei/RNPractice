@@ -5,17 +5,17 @@ const initialState = {
 }
 
 export default function countReducer(state = initialState, action) {
-	
-	switch (action.type){
+
+	switch (action.type) {
 		case ActionTypes.INCREASE_COUNT:
 			return {
 				...state,
-				count: action.count+1
+				count: action.count + 1
 			};
 		case ActionTypes.DECREASE_COUNT:
 			return {
 				...state,
-				count: action.count-1
+				count: action.count - 1
 			};
 		default:
 			return state;
