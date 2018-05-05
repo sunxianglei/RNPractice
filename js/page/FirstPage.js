@@ -46,6 +46,31 @@ class FirstPage extends Component {
         this.jumpPage = this.jumpPage.bind(this);
     }
 
+    componentDidMount() {
+        new Promise((resolve,reject) => {
+            setTimeout(() => {
+                console.log("开始执行异步1");
+                resolve('1');
+            },2000);
+        }).then(result => {
+            console.log("promise1 -> ", result);
+        });
+
+        fetch('https://facebook.github.io/react-native/movies.json').then(result => {
+            console.log("promise2 -> ", result);
+        });
+
+        new Promise((resolve,reject) => {
+            setTimeout(() => {
+                console.log("开始执行异步3");
+                resolve('3');
+            },4000);
+        }).then(result => {
+            console.log("promise3 -> ", result);
+        });
+
+    }
+
     jumpPage(name, params) {
         if (name) {
             this.props.navigation.navigate(name, params);

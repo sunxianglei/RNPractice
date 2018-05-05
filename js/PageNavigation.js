@@ -1,7 +1,16 @@
-import {StackNavigator, TabNavigator} from "react-navigation";
+import {DrawerNavigator, StackNavigator, TabNavigator} from "react-navigation";
 import FirstPage from "./page/FirstPage";
 import LoginPage from "./page/LoginPage";
 import TestPage from "./page/TestPage";
+import React from "react";
+import {Image, StyleSheet, View} from "react-native";
+
+const styles = StyleSheet.create({
+    imageStyle: {
+        width: 30,
+        height: 30,
+    },
+})
 
 const RootStack = StackNavigator(
     {
@@ -29,9 +38,6 @@ const PageNavigator = StackNavigator({
             headerTitle: 'login',
         }
     },
-    RootStack: {
-        screen: RootStack,
-    }
 }, {
     initialRouteName: 'FirstPage',
     navigationOptions: {
@@ -41,24 +47,50 @@ const PageNavigator = StackNavigator({
         headerTintColor: '#fff',
         headerTitleStyle: {
             fontWeight: 'bold',
-        }
+            alignSelf: 'center',
+        },
     }
 });
 
 const TabNavigation = TabNavigator({
+    PageNavigator: {
+        screen: PageNavigator,
+        navigationOptions: {
+            tabBarLabel: '欢迎',
+        }
+    },
+    RootStack: {
+        screen: RootStack,
+        navigationOptions: {
+            // title: 'login',
+            tabBarLabel: '测试',
+        }
+    },
+},{
+    tabBarPosition: 'bottom',
+});
+
+const DrawerNavigation = DrawerNavigator({
     FirstPage: {
         screen: FirstPage,
         navigationOptions: {
-            headerTitle: 'welcome',
+            drawerLabel: 'First',
+            drawerIcon: (
+                <Image source={require('./image/niu.png')} style={styles.imageStyle}></Image>
+            )
         }
     },
     LoginPage: {
         screen: LoginPage,
         navigationOptions: {
             // title: 'login',
-            headerTitle: 'login',
+            drawerLabel: 'LoginPage',
+            drawerIcon: (
+                <Image source={require('./image/niu.png')} style={styles.imageStyle}></Image>
+            )
         }
     },
 });
+
 
 export default TabNavigation;
