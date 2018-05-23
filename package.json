@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "d3-interpolate-path": "^2.0.1",
+    "proxy-polyfill": "^0.2.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-navigation": "^1.5.12",

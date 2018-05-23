@@ -4,6 +4,9 @@ import LoginPage from "./page/LoginPage";
 import TestPage from "./page/TestPage";
 import React from "react";
 import {Image, StyleSheet, View} from "react-native";
+import WDPage from "./page/WDPage";
+import CheDanPage from "./page/CheDanPage";
+import ChiCangPage from "./page/ChiCangPage";
 
 const styles = StyleSheet.create({
     imageStyle: {
@@ -12,17 +15,23 @@ const styles = StyleSheet.create({
     },
 })
 
-const RootStack = StackNavigator(
-    {
-        TestPage: {
-            screen: TestPage,
-        },
+const RootStack = StackNavigator({
+    TestPage: {
+        screen: TestPage,
     },
-    {
-        mode: 'modal',
-        headerMode: 'none',
+}, {
+    // headerMode: 'none',
+    navigationOptions: {
+        headerStyle: {
+            backgroundColor: '#0a8dff',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            alignSelf: 'center',
+        },
     }
-);
+});
 
 const PageNavigator = StackNavigator({
     FirstPage: {
@@ -36,6 +45,7 @@ const PageNavigator = StackNavigator({
         navigationOptions: {
             // title: 'login',
             headerTitle: 'login',
+            tabBarVisible: false,
         }
     },
 }, {
@@ -66,8 +76,39 @@ const TabNavigation = TabNavigator({
             tabBarLabel: '测试',
         }
     },
+}, {
+});
+
+const TabNavigation1 = TabNavigator({
+    WDPage: {
+        screen: WDPage,
+        navigationOptions: {
+            tabBarLabel: '五档',
+        }
+    },
+    CheDanPage: {
+        screen: CheDanPage,
+        navigationOptions: {
+            tabBarLabel: '撤单',
+        }
+    },
+    ChiCangPage: {
+        screen: ChiCangPage,
+        navigationOptions: {
+            tabBarLabel: '持仓',
+        }
+    }
 },{
-    tabBarPosition: 'bottom',
+    navigationOptions: {
+        headerStyle: {
+            backgroundColor: '#0a8dff',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            alignSelf: 'center',
+        },
+    }
 });
 
 const DrawerNavigation = DrawerNavigator({
@@ -93,4 +134,4 @@ const DrawerNavigation = DrawerNavigator({
 });
 
 
-export default TabNavigation;
+export default TabNavigation1;

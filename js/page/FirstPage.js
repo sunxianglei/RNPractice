@@ -19,7 +19,7 @@ import {
     SectionList,
     Button,
     Alert,
-    NativeModules,
+    NativeModules, StatusBar,
 } from 'react-native';
 import Counter from '../component/Counter';
 import MovieList from '../component/MovieList';
