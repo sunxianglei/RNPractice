@@ -32,9 +32,8 @@ class HeadItem extends Component {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        height: 30,
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
         justifyContent: 'space-between',
         alignItems: 'center',
     },
