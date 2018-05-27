@@ -10,6 +10,9 @@ import {
 import HeadItem from "./HeadItem";
 import WeituoItem from "./WeituoItem";
 
+/**
+ * 带有标题头的滑动列表
+ */
 class TitleHeadList extends Component {
 
 	constructor(props) {

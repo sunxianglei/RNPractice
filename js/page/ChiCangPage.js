@@ -7,7 +7,7 @@ import {
     View,
     StyleSheet, Text,
 } from 'react-native';
-import ChiCangCapital from "../component/ChiCangCapital";
+import PersonalCapital from "../component/PersonalCapital";
 
 class ChiCangPage extends Component {
 
@@ -35,7 +35,7 @@ class ChiCangPage extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <ChiCangCapital data={this.data} />
+                <PersonalCapital data={this.data} />
             </View>
         );
     }
